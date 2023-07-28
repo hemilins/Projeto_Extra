@@ -1,0 +1,89 @@
+inherited FuncionarioCons: TFuncionarioCons
+  Caption = 'Funcion'#225'rios'
+  TextHeight = 15
+  inherited Panel1: TPanel
+    inherited btnExcluir: TSpeedButton
+      Visible = False
+    end
+    inherited btnSalvar: TSpeedButton
+      Visible = False
+      ExplicitTop = 4
+    end
+    inherited btnEditar: TSpeedButton
+      Visible = False
+    end
+    inherited btNovo: TSpeedButton
+      Visible = False
+      ExplicitLeft = 578
+      ExplicitTop = 4
+    end
+  end
+  inherited CardPanelLista: TCardPanel
+    inherited CardLista: TCard
+      inherited pnlGrid: TPanel
+        inherited gridConsulta: TDBGrid
+          DataSource = DataSource
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+          Columns = <
+            item
+              Expanded = False
+              FieldName = 'IDFUNCIONARIO'
+              Title.Caption = 'C'#243'digo'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'IDEMPRESA'
+              Title.Caption = 'C'#243'd. Empresa'
+              Width = 80
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NMFUNCIONARIO'
+              Title.Caption = 'Nome'
+              Width = 200
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NUCPF'
+              Title.Caption = 'CPF'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'NURG'
+              Title.Caption = 'RG'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'DTNASCIMENTO'
+              Title.Caption = 'Data Nascimento'
+              Visible = True
+            end
+            item
+              Expanded = False
+              FieldName = 'TXEMAIL'
+              Title.Caption = 'Email'
+              Visible = True
+            end>
+        end
+      end
+      inherited pnlFiltro: TPanel
+        inherited lblFiltro: TLabel
+          Width = 33
+          Caption = 'Nome'
+          ExplicitWidth = 33
+        end
+        inherited editFiltro: TEdit
+          OnChange = editFiltroChange
+        end
+      end
+    end
+  end
+  inherited DataSource: TDataSource
+    DataSet = Conexao.SQLFuncionarios
+  end
+end

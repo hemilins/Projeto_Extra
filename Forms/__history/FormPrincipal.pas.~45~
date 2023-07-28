@@ -1,0 +1,64 @@
+unit FormPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TPrincipalForm = class(TForm)
+    Menu: TMainMenu;
+    Consultas1: TMenuItem;
+    EmpresaMenu: TMenuItem;
+    FuncionarioMenu: TMenuItem;
+    pnlRodape: TPanel;
+    lblEmpresa: TLabel;
+    procedure FormShow(Sender: TObject);
+    procedure EmpresaMenuClick(Sender: TObject);
+    procedure FuncionarioMenuClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  PrincipalForm: TPrincipalForm;
+
+implementation
+
+{$R *.dfm}
+
+uses Constantes, Empresa;
+
+procedure TPrincipalForm.EmpresaMenuClick(Sender: TObject);
+var
+  EmpresaCons : TEmpresaCons;
+begin
+  EmpresaCons := TEmpresaCons.Create(Self);
+  try
+    EmpresaCons.ShowModal;
+  finally
+    EmpresaCons.Free;
+  end;
+end;
+
+procedure TPrincipalForm.FormShow(Sender: TObject);
+begin
+  lblEmpresa.Caption := Nome_Empresa;
+end;
+
+procedure TPrincipalForm.FuncionarioMenuClick(Sender: TObject);
+var
+  EmpresaCons : TEmpresaCons;
+begin
+  EmpresaCons := TEmpresaCons.Create(Self);
+  try
+    EmpresaCons.ShowModal;
+  finally
+    EmpresaCons.Free;
+  end;
+end;
+
+end.

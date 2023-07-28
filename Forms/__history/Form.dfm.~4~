@@ -1,0 +1,17 @@
+object BaseForm: TBaseForm
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = 'BaseForm'
+  ClientHeight = 247
+  ClientWidth = 649
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  KeyPreview = True
+  OnKeyDown = FormKeyDown
+  TextHeight = 15
+end

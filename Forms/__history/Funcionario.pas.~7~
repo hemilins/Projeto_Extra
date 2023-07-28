@@ -1,0 +1,40 @@
+unit Funcionario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FormConsulta, Data.DB, Vcl.StdCtrls,
+  Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TFuncionarioCons = class(TConsultaForm)
+  private
+    procedure filterEmpresa();
+  public
+    { Public declarations }
+  end;
+
+var
+  FuncionarioCons: TFuncionarioCons;
+
+implementation
+
+{$R *.dfm}
+
+uses DM;
+
+{ TFuncionarioCons }
+
+procedure TFuncionarioCons.filterEmpresa;
+begin
+  Conexao.SQLFuncionarios.SQL.Clear;
+  query1.sql.add(´select * from contaspagar´);
+  query1.sql.add(´where NumDuplicata = :Duplicata and´);
+  query1.sql.add(´paga = false´);
+  query1.params[0].AsInteger:= StrToInt(Edit1.text);
+  query1.open;
+  query1.active:=true;
+end;
+
+end.

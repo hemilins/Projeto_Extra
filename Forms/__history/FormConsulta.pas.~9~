@@ -1,0 +1,44 @@
+unit FormConsulta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Form, Vcl.StdCtrls,
+  Vcl.Buttons, Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.WinXPanels;
+
+type
+  TConsultaForm = class(TBaseForm)
+    Panel1: TPanel;
+    pnlGrid: TPanel;
+    gridConsulta: TDBGrid;
+    dsConsulta: TDataSource;
+    CardPanelLista: TCardPanel;
+    CardLista: TCard;
+    CardCadastro: TCard;
+    btnExcluir: TSpeedButton;
+    btnSalvar: TSpeedButton;
+    btnCancelar: TSpeedButton;
+    btnEditar: TSpeedButton;
+    btNovo: TSpeedButton;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ConsultaForm: TConsultaForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TConsultaForm.FormShow(Sender: TObject);
+begin
+  inherited;
+  CardPanelLista.ActiveCard := CardLista;
+end;
+
+end.

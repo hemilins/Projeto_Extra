@@ -1,0 +1,18 @@
+inherited FuncionarioCons: TFuncionarioCons
+  Caption = 'Funcion'#225'rios'
+  TextHeight = 15
+  inherited CardPanelLista: TCardPanel
+    inherited CardLista: TCard
+      inherited pnlFiltro: TPanel
+        inherited lblFiltro: TLabel
+          Width = 33
+          Caption = 'Nome'
+          ExplicitWidth = 33
+        end
+      end
+    end
+  end
+  inherited DataSource: TDataSource
+    DataSet = Conexao.SQLFuncionarios
+  end
+end
